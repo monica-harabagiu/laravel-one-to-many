@@ -32,8 +32,29 @@
         </div>
 
         <div class="mb-3">
-          <label for="img" class="form-label">Image</label>
-          <input name="img" type="file" class="form-control" id="img">
+            <label for="img" class="form-label">Image</label>
+            <input name="img" type="file" class="form-control" id="img">
+        </div>
+
+        <div>
+            <label for="type_id">Types</label>
+            <select class="
+            form-select 
+            @error('category_id')
+                is_invalid
+            @enderror
+            " 
+            aria-label="Default select example" name="type_id" id="type_id">
+                <option value="">Select one</option>
+                
+                @foreach ($types as $item)
+                    <option 
+                        value="{{ $item->id }}"
+                        {{ $item->id == old('type_id') ? 'selected' : '' }}
+                        >{{ $item->name }}
+                    </option>
+                @endforeach
+            </select>
         </div>
 
         <div class="mb-3">

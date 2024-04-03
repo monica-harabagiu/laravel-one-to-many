@@ -16,7 +16,8 @@ class Project extends Model
         'img',
         'description',
         'software',
-        'slug'
+        'slug',
+        'type_id'
     ];
 
     public static function generateSlug($title)

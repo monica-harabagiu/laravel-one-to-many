@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->unsignedInteger('type_id')->nullable()->after('id');
+            // $table->unsignedBigInteger('type_id')->nullable()->after('id');
 
-            $table->foreign('type_id')->references('id')->on('type')->onDelete('set null');
+            // $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
+
+            $table->foreignId('type_id')->nullable()->constrained()->nullOnDelete();
         });
     }
 
@@ -24,7 +26,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropForeign('projects_type_id_foreign');
+            // $table->dropForeign('projects_type_id_foreign');
             $table->dropColumn('type_id');
         });
     }

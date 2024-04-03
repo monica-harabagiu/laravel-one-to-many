@@ -36,7 +36,7 @@
             <input name="img" type="file" class="form-control" id="img">
         </div>
 
-        <div>
+        <div class="mb-3">
             <label for="type_id">Types</label>
             <select class="
             form-select 

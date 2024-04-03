@@ -17,6 +17,7 @@
                     <th scope="col">image</th>
                     <th scope="col">description</th>
                     <th scope="col">software</th>
+                    <th scope="col">types</th>
                     <th scope="col">actions</th>
                 </tr>
             </thead>

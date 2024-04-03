@@ -44,6 +44,27 @@
         </div>
 
         <div class="mb-3">
+            <label for="type_id">Types</label>
+            <select class="
+            form-select 
+            @error('category_id')
+                is_invalid
+            @enderror
+            " 
+            aria-label="Default select example" name="type_id" id="type_id">
+                <option value="">Select one</option>
+                
+                @foreach ($types as $item)
+                    <option 
+                        value="{{ $item->id }}"
+                        {{ $item->id == old('type_id', $project->type ? $project->type->id : '' ) ? 'selected' : '' }}
+                        >{{ $item->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-3">
             <label for="software" class="form-label">Softwares</label>
             <input value="{{ old('software', $project->software) }}" name="software" type="text" class="form-control" id="software">
         </div>
